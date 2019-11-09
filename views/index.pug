@@ -1,0 +1,59 @@
+extends layout
+
+block layout-content
+    //div.jumbotron.text-center(style="margin-bottom:0; padding-top: 50px; padding-bottom: 50px")
+        h1 Server Analytics
+        div.Message
+            div.text-center
+                span.text-info View all server status here
+    nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+        a.navbar-brand(href="#") Analytic v1.0
+        button.navbar-toggler(data-toggle="collapse" data-target="#collapsibleNavbar")
+            span.navbar-toggler-icon
+
+        //div.collapse.navbar-collapse(id="collapsibleNavbar")
+            ul.navbar-nav
+                li.nav-item
+                    a.nav-link(href="#") Link
+                li.nav-item
+                    a.nav-link(href="#") Link
+                li.nav-item
+                    a.nav-link(href="#") Link
+    div.row.flex-nowrap.h-100.w-100
+        div.col-2(style="margin-top:30px; margin-bottom:30px; margin-left: 20px")
+            h3 View
+            ul.nav.nav-pills.flex-column
+                li.nav-item
+                    a.nav-link(href="#") Errors
+                li.nav-item
+                    a.nav-link(href="#") Chat
+                li.nav-item
+                    a.nav-link.active(href="#") Population
+            hr.d-sm-none
+
+            div.form-group(style='margin-top: 30px')
+                div.container
+                    label(for='dateStartInput') Date Range
+                    input.form-control(type='date' value='10/01/2019' id='dateStartInput')
+                    input.form-control(type='date' value='10/01/2019' id='dateEndInput')
+                div.container(style='margin-top: 20px')
+                    label(for='timeStartInput') Time Range
+                    input.form-control(type='time' value='12:30' id='timeStartInput')
+                    input.form-control(type='time' value='12:38' id='timeEndInput')
+                div.container(style='margin-top: 20px')
+                    //label(for='conditionInput') Filter
+                    //div.form-group
+                        //input.form-control(type='text' value='{"HumanPopulation": {"$gt": 10, "$lt": 40}, "ZombiePopulation": {"$gt": 4, "$lt": 60}}' id='conditionInput')
+                        //button.btn.btn-primary(type='submit' id='setFilterButton') Change
+                    ul.list-group.list-group-flush(id='dnameList')
+
+                div.container(style='margin-top: 20px')
+                    button.btn.btn-primary(type='submit' id='searchButton') Search
+
+        div.p-2.flex-grow-1(style='background-color: #40444a; margin-right:0')
+            canvas(id='chart-canvas' style='')
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js')
+            script(src='/js/data-page.js')
+
+
+    //div.container.h-100.bg-dark
